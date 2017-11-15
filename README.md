@@ -11,7 +11,7 @@
 - [webpack-migrating](./Migrating/webpack-migrating.md)
 
 ## 技术栈
-- 
+- [redux](./techstack/redux.md)
 
 
 ## 持续集成
