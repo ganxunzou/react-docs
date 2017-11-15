@@ -70,7 +70,7 @@ export function routerReducer(state = initialState, { type, payload } = {}) {
 一个常量，调用`history`操作是派发`action`的`type`值。`history`操作一般有
 - `push` ： 新增一个路径
 - `replace`：替换现有的路径，没有堆栈所以不能回退。
-- `go`：跳转到指定路径
+- `go`：跳转到指定堆栈位置，是个数字
 - `goBack`：回退
 - `goForward` ： 前进
 
