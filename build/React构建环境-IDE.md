@@ -2,11 +2,14 @@
 React开发推荐使用的开发工具用：`Visual Studio Code`
 
 ## 常用插件
+- Auto-Open Markdown Preview
+- Debugger for Chrome
 - ESLint
 - EditorConfig for Visual Studio Code
+- JavaScript(ES6) coe snippets
+- React Redux ES6 Snippets
 - Reactjs code snippets
-- React Standard Style snippets
-- JS-CSS-HTML Formatting
+- JS-CSS-HTML Formatter
 
 
 ## 常用功能
