@@ -1,4 +1,5 @@
 # React 手册
+这是一个非常完整的文档。包括了react构建环境，技术栈，前端部署等知识点。
 
 ## Reac构建环境手册
 - [React构建环境-IDE](./build/React构建环境-IDE.md)
