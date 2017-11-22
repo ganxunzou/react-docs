@@ -119,8 +119,10 @@ computeMatch(pathname) {
 ```JS
 class Route extends React.Component
 ```
-`Route` 将 `URL` 地址和页面绑定的组件。也是一个正规的 `react` 组件。
+`Route` 将 `URL` 地址和页面绑定的组件。也是一个正规的 `react` 组件。常规用法
+```
 
+```
 `Route` 组件提供了以下属性
 ```JS
 static propTypes = {
@@ -170,7 +172,8 @@ getChildContext() {
     }
   }
 ```
-这个就是为什么`Route`可以多层级嵌套使用的原因了。
+这就是为什么我们可以直接通过 `this.context.router.route.location` 获取当前所在的路径。
+
 
 
 

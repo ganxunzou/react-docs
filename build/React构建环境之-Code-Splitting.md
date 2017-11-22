@@ -2,14 +2,26 @@
 代码拆分在React应用的是相当必要的。试想如果将所有的业务应用都打包到一个JS中,不仅JS文件会变得超大，另外有个致命的问题就是每次一个业务场景的变更，都需要重新打包整个应用，这将会产生很大的投产风险。因此需要的是将业务代码分离，按需加载。
 
 
-> 插播一段说明 ： 代码分离分两种：开发的代码分离 和 按需加载功能分离。我们这边说讲的就是：按需价值功能分离。其中开发时的代码分离，JS中已经有CommonJS和ES6 的Module 实现了。
+> 插播一段说明 ： 代码分离分两种：开发的代码抽象分离和功能按需加载分离。我们这边说讲的就是：功能按需加载分离。其中开发时的代码分离，JS中已经有CommonJS和ES6 的Module 实现了。
 
-代码分离一般需要考虑下三类：
- - **主应用分离**：应用程序的壳，没有具体的业务逻辑
- - **公用代码分离**：程序运行以来环境，如：React，React-Router，自定义组件库等。
- - **业务代码分离**：具体的业务页面
+Webpack提供了三种Code Splitting方式：
+- 配置多个`entry`
+- 通过`CommonsChunkPlugin` 抽离公共库到，避免重复。
+- 通过`import`动态导入。
 
-## 公共代码分离
+
+## 多个`entry`
+```JS
+const config = {
+    entry: {
+        // 增加一个entry，配置要公共分离的库
+        vendor: ['react', 'react-dom'],
+        App: './src/index.jsx',
+        // ... 允许配置N个
+    },
+```
+
+## 抽离公共库 `CommonsChunkPlugin`
 
 webpack 提供了功能代码分离插件：`new webpack.optimize.CommonsChunkPlugin()`，我们只要简单的在`webpack.confg.js`配置即可。配置如下：
 ```
@@ -30,10 +42,9 @@ const config = {
 }
 ```
 
-## 业务代码分离
-主程序代码分离和业务代码分离一般在一起处理。业务代码分离需要用到`webpack 2`提供的动态加载。（PS，一般会选择和Router一起用。不过也可以不使用router）
-
-```
+## 动态导入
+一般会选择和 `Router` 一起用。不过也可以不使用 `Router`。
+```JS
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import style from './App.css';
@@ -69,13 +80,14 @@ export default App;
 ```
 
 ### Webpack2 写法提升
-Webpack 1的写法
-```
+- Webpack 1的写法
+```JS
 require.ensure([], function(require) {
   var foo = require("./module");
 });
 ```
-Webpack 2 返回的是 `Promise`
+
+- Webpack 2 返回的是 `Promise`
 ```
 function onClick() {
   import("./module").then(module => {
