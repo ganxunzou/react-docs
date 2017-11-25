@@ -118,7 +118,7 @@ Webpack 2 的写法更加优雅一些，不过如果你需要在打包的时候�
 - webpack 2 
 在Webpack 2 中竟然无法实现这个功能，因为在Webpack 2 中，chunkname 是通过注释来注入的 `/* webpackChunkName:header */` ,因为是注释代码，还不能动态拼接。感觉好奇葩的设计。
     ```
-    import(`./${type}/index` /* webpackChunkName:header */).then((foo) => {
+    import(`./${type}/index` /* webpackChunkName:"header" */).then((foo) => {
         console.log(foo);
         this.foo = foo;
         this.forceUpdate();

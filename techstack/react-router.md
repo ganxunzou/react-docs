@@ -120,7 +120,8 @@ computeMatch(pathname) {
 class Route extends React.Component
 ```
 `Route` 将 `URL` 地址和页面绑定的组件。也是一个正规的 `react` 组件。常规用法
-```
+
+
 
 ```
 `Route` 组件提供了以下属性
