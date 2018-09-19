@@ -223,8 +223,15 @@ dispatch(action)
 这么写其实我觉得挺好，简单易懂。但是`redux`觉得，这么写一个地方还好，要是十个，百个地方都这么写，就不太好了。所以简化一下写法：
 ```JS
 bindActionCreator(ActionCreator,dispatch);
+
+// or 
+bindActionCreators({onAdd}, dispatch);
+
+// or
+bindActionCreators({onAddd});
 ```
-然而并没有觉有多牛逼，对刚开始的人还增加阅读的难度。不过人家确实将两行代码变成了一行。
+
+
 
 
 # 总结
