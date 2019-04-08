@@ -25,6 +25,8 @@
 
 ## 开发规范
 
+- [react-router](./specification/develop-react.md)
+
 ## 持续集成
 
 ## 发布部署（Operations）
