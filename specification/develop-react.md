@@ -68,6 +68,10 @@
 
 - 命名规则
 
+  - 类的命名规则
+
+  类命名采用从第一个单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
+
   - 函数命名规则
 
   函数命名采用第一个单词的首字母小写，其后单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
@@ -237,3 +241,88 @@ var globalPerson = createPerson("Nicholas");
 // 手工解除 globalPerson 的引用
 globalPerson = null;
 ```
+
+## 组件开发规范
+
+- PropTypes
+
+组件化模式开发往往需要提供外部属性`props`。对外的`props`属性要求对类型和是否必须输入做强制规范。完整示例：
+
+```jsx
+class HelloWorld extends Component {
+  render() {
+    const { name } = this.props;
+    return <div>userName: {name}</div>;
+  }
+}
+
+// 定义 PropTypes
+HelloWorld.propTypes = {
+  name: PropTypes.string.isRequired
+};
+```
+
+PropTypes 支持的类型如下：
+
+```js
+// 可以声明 prop 为指定的 JS 基本类型。默认
+// 情况下没有isRequired，这些 prop 都是可传可不传的。
+optionalArray: React.PropTypes.array,
+optionalBool: React.PropTypes.bool,
+optionalFunc: React.PropTypes.func,
+optionalNumber: React.PropTypes.number,
+optionalObject: React.PropTypes.object,
+optionalString: React.PropTypes.string,
+
+// 所有可以被渲染的对象：数字，
+// 字符串，DOM 元素或包含这些类型的数组。
+optionalNode: React.PropTypes.node,
+
+// React 元素
+optionalElement: React.PropTypes.element,
+
+// 用 JS 的 instanceof 操作符声明 prop 为类的实例。
+optionalMessage: React.PropTypes.instanceOf(Message),
+
+// 用 enum 来限制 prop 只接受指定的值。
+optionalEnum: React.PropTypes.oneOf(['News', 'Photos']),
+
+// 指定的多个对象类型中的一个
+optionalUnion: React.PropTypes.oneOfType([
+  React.PropTypes.string,
+  React.PropTypes.number,
+  React.PropTypes.instanceOf(Message)
+]),
+
+// 指定类型组成的数组
+optionalArrayOf: React.PropTypes.arrayOf(React.PropTypes.number),
+
+// 指定类型的属性构成的对象
+optionalObjectOf: React.PropTypes.objectOf(React.PropTypes.number),
+
+// 特定形状参数的对象
+optionalObjectWithShape: React.PropTypes.shape({
+  color: React.PropTypes.string,
+  fontSize: React.PropTypes.number
+}),
+
+// 自定义验证器。如果验证失败需要返回一个 Error 对象。不要直接
+// 使用 `console.warn` 或抛异常，因为这样 `oneOfType` 会失效。
+customProp: function(props, propName, componentName) {
+  if (!/matchme/.test(props[propName])) {
+    return new Error('Validation failed!');
+  }
+}
+```
+
+## 模块使用规范
+
+项目源码必须采用`ES6`的模块语法，即：`import` 命令和 `export` 命令。
+
+> 构件环境（例如：webpack）由于构件工具不一定支持 ES6，因此可以使用`CommonJS`的模块语法。
+
+- `ES6`模块注意事项
+
+  - ES6 模块输出的是值的`引用`。（**需要特别注意**）
+
+  - ES6 模块是编译时输出接口。
