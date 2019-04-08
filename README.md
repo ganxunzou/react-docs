@@ -23,9 +23,9 @@
 - [react-redux](./techstack/react-redux.md)
 - [react-router-redux5（bate）](./techstack/react-router-redux.md)
 
-## 开发规范
+## 开发规范（specification）
 
-- [react-router](./specification/develop-react.md)
+- [react](./specification/develop-react.md)
 
 ## 持续集成
 
