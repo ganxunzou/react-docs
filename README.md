@@ -4,33 +4,35 @@
 
 ## Reac 构建环境手册
 
-* [React 构建环境-IDE](./build/React构建环境-IDE.md)
-* [React 构建环境之-Hot-Update](./build/React构建环境之-Hot-Update.md)
-* [React 构建环境之-SourceMap](./build/React构建环境之-SourceMap.md)
-* [React 构建环境之-Code-Splitting](./build/React构建环境之-Code-Splitting.md)
-* [React 构建环境之-CSS-Module](./build/React构建环境之-CSS-Module.md)
+- [React 构建环境-IDE](./build/React构建环境-IDE.md)
+- [React 构建环境之-Hot-Update](./build/React构建环境之-Hot-Update.md)
+- [React 构建环境之-SourceMap](./build/React构建环境之-SourceMap.md)
+- [React 构建环境之-Code-Splitting](./build/React构建环境之-Code-Splitting.md)
+- [React 构建环境之-CSS-Module](./build/React构建环境之-CSS-Module.md)
 
 ## 版本升级
 
-* [react-router-migrating](./Migrating/react-router-migrating.md)
-* [webpack-migrating](./Migrating/webpack-migrating.md)
-* [react-migrating](./Migrating/React-Migrating.md)
+- [react-router-migrating](./Migrating/react-router-migrating.md)
+- [webpack-migrating](./Migrating/webpack-migrating.md)
+- [react-migrating](./Migrating/React-Migrating.md)
 
 ## 技术栈（Development）
 
-* [react-router](./techstack/react-router.md)
-* [redux](./techstack/redux.md)
-* [react-redux](./techstack/react-redux.md)
-* [react-router-redux5（bate）](./techstack/react-router-redux.md)
+- [react-router](./techstack/react-router.md)
+- [redux](./techstack/redux.md)
+- [react-redux](./techstack/react-redux.md)
+- [react-router-redux5（bate）](./techstack/react-router-redux.md)
+
+## 开发规范
 
 ## 持续集成
 
 ## 发布部署（Operations）
 
-* [版本发布规范](./operations/版本发布规范.md)
+- [版本发布规范](./operations/版本发布规范.md)
 
 ## 管理平台
 
-* [gitlab 搭建](https://www.gitbook.com/read/book/ganxunzou/gitlab-doc)
+- [gitlab 搭建](https://www.gitbook.com/read/book/ganxunzou/gitlab-doc)
 
-* [JIRA 搭建]()
+- [JIRA 搭建]()
