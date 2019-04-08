@@ -8,26 +8,26 @@
 
 - 代码格式化与校验
 
-  代码格式化与校验采用：`ESLint` + `prettier`。在 VSCode 中做相应的设置:
+代码格式化与校验采用：`ESLint` + `prettier`。在 VSCode 中做相应的设置:
 
-  ![](../imgs/vscode-prettier.png)
+![](../imgs/vscode-prettier.png)
 
-* 声明规范
+- 声明规范
 
   - 函数声明
 
-    推荐采用箭头函数写法，箭头函数写法的优点是自动绑定`this`对象
+  推荐采用箭头函数写法，箭头函数写法的优点是自动绑定`this`对象
 
-    ```jsx
-    class HelloWorld extends Component {
-      // 采用箭头函数方式声明函数
-      helloWorldClickHandle = () => {};
+  ```jsx
+  class HelloWorld extends Component {
+    // 采用箭头函数方式声明函数
+    helloWorldClickHandle = () => {};
 
-      render() {
-        return <div onClick={this.helloWorldClickHandle}>HelloWOrld</div>;
-      }
+    render() {
+      return <div onClick={this.helloWorldClickHandle}>HelloWOrld</div>;
     }
-    ```
+  }
+  ```
 
   - 属性与变量声明
 
@@ -66,60 +66,60 @@
     };
     ```
 
-* 命名规则
+- 命名规则
 
   - 函数命名规则
 
-    函数命名采用第一个单词的首字母小写，其后单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
+  函数命名采用第一个单词的首字母小写，其后单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
 
-    例如：`helloWorldClickHandle=()=>{}`
+  例如：`helloWorldClickHandle=()=>{}`
 
   - 属性和变量命名规则
 
-    属性和变量命名采用第一个单词的首字母小写，其后单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
+  属性和变量命名采用第一个单词的首字母小写，其后单词的首字母大写的骆驼式命名法。如果属性名过长（超过 30 个字符）可以简写，简写字符采用大写方式。
 
-    例如：`userCode`
+  例如：`userCode`
 
 ## 生命周期函数使用规范
 
 - componentWillReceiveProps
 
-  尽量不要在`componentWillReceiveProps`中做`setState`操作，因此正常情况下`props`的变化将自动重新渲染界面。如果某一个功能必须在`componentWillReceiveProps`中操作`setState`，特别注意需要做缓存处理。
+尽量不要在`componentWillReceiveProps`中做`setState`操作，因此正常情况下`props`的变化将自动重新渲染界面。如果某一个功能必须在`componentWillReceiveProps`中操作`setState`，特别注意需要做缓存处理。
 
-  示例：
+示例：
 
-  ```jsx
-  class HelloWorld extends Component {
-    construction(props) {
-      super(props);
-      this.state = {
-        stateAtt = "";
-      };
-    }
-    componentWillReceiveProps=(nextProps)=>{
-      const {stateAtt} = this.state;
-      // 增加缓存判断
-      if(nextProps && nextProps.stateAtt !== this.state.stateAtt){
-        this.setState({stateAtt: nextProps.stateAtt});
-      }
-    }
-    render() {
-      return <div>HelloWOrld</div>;
+```jsx
+class HelloWorld extends Component {
+  construction(props) {
+    super(props);
+    this.state = {
+      stateAtt = "";
+    };
+  }
+  componentWillReceiveProps=(nextProps)=>{
+    const {stateAtt} = this.state;
+    // 增加缓存判断
+    if(nextProps && nextProps.stateAtt !== this.state.stateAtt){
+      this.setState({stateAtt: nextProps.stateAtt});
     }
   }
-  ```
+  render() {
+    return <div>HelloWOrld</div>;
+  }
+}
+```
 
 - componentWillUpdate
 
-  禁止在`componentWillUpdate`中做`setState`操作，将会导致死循环。
+禁止在`componentWillUpdate`中做`setState`操作，将会导致死循环。
 
 - componentWillMount
 
-  在`componentWillMount`中做一些初始设置，动态事件监听等，注意动态设置的地方在组件销毁的时候需要释放。
+在`componentWillMount`中做一些初始设置，动态事件监听等，注意动态设置的地方在组件销毁的时候需要释放。
 
 - componentWillUnmount
 
-  在`componentWillUnmount`中做一些资源释放操作，例如：事件销毁（详见下文中：性能&内存中的事件监听和移除）
+在`componentWillUnmount`中做一些资源释放操作，例如：事件销毁（详见下文中：性能&内存中的事件监听和移除）
 
 ## state 使用规范
 
