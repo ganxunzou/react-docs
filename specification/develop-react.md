@@ -164,47 +164,47 @@ class HelloWorld extends Component {
 
 - `key` 的使用规范
 
-  React 列表渲染时，需要通过`key`来标识列表每一项的唯一性，从而提高操作型列表（对列表内容做增，删，改操作）页性能。
+React 列表渲染时，需要通过`key`来标识列表每一项的唯一性，从而提高操作型列表（对列表内容做增，删，改操作）页性能。
 
-  默认情况下如果未设置`key`，`React`会自动采用对应列表中的索引`index`做`key`。这种方式对于只是显示型列表来说也是没有问题的。但是对于操作型列表来说，变更操作（特别是删除与新增）对应索引会变化，将导致整个列表渲染（而不是差异化渲染）。
+默认情况下如果未设置`key`，`React`会自动采用对应列表中的索引`index`做`key`。这种方式对于只是显示型列表来说也是没有问题的。但是对于操作型列表来说，变更操作（特别是删除与新增）对应索引会变化，将导致整个列表渲染（而不是差异化渲染）。
 
-  因此推荐使用的`key`是数据项中的唯一标识属性，例如：`id`。
+因此推荐使用的`key`是数据项中的唯一标识属性，例如：`id`。
 
-  > 特别注意：不要使用动态`uuid`方式，动态`uuid`方式解除了`react`中`key`的警告，但是每次渲染都会重新生成新的`uuid`，导致列表属性渲染。
-  >
-  > 示例：`<li key={uuid()}> </li>`
+> 特别注意：不要使用动态`uuid`方式，动态`uuid`方式解除了`react`中`key`的警告，但是每次渲染都会重新生成新的`uuid`，导致列表属性渲染。
+>
+> 示例：`<li key={uuid()}> </li>`
 
-  示例：
+示例：
 
-  ```jsx
-  class HelloWorld extends Component {
-    construction(props) {
-      super(props);
-      this.state = {
-        data: [
-          { label: "item1", id: "item-id-1" },
-          { label: "item1", id: "item-id-1" }
-        ]
-      };
-    }
-
-    render() {
-      const { data } = this.state;
-      return (
-        <div>
-          HelloWOrld List:
-          <ul>
-            {data && data.map(item=>{
-              return <li key={item.id}>{item.label}</l>
-            })}
-          </ul>
-        </div>
-      );
-    }
+```jsx
+class HelloWorld extends Component {
+  construction(props) {
+    super(props);
+    this.state = {
+      data: [
+        { label: "item1", id: "item-id-1" },
+        { label: "item1", id: "item-id-1" }
+      ]
+    };
   }
-  ```
 
-* 垃圾清理
+  render() {
+    const { data } = this.state;
+    return (
+      <div>
+        HelloWOrld List:
+        <ul>
+          {data && data.map(item=>{
+            return <li key={item.id}>{item.label}</l>
+          })}
+        </ul>
+      </div>
+    );
+  }
+}
+```
+
+- 垃圾清理
 
 > 使用具备垃圾收集机制的语言编写程序，开发人员一般不必操心内存管理的问题。但是， JavaScript
 > 在进行内存管理及垃圾收集时面临的问题还是有点与众不同。其中最主要的一个问题，就是分配给 Web
