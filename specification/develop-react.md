@@ -31,40 +31,40 @@
 
   - 属性与变量声明
 
-    React 中的属性和变量主要有：对象内部属性，`state` 属性、函数内部变量和 `PropTypes` 属性。对象内部属性和 `state` 属性必须在 `construction` 函数中先定义。函数内部变量声明注意修饰符，变量用: `let`，常量用：`const`。`PropTypes` 声明如果是必输属性，必须加 `isRequired`修饰符。
+  React 中的属性和变量主要有：对象内部属性，`state` 属性、函数内部变量和 `PropTypes` 属性。对象内部属性和 `state` 属性必须在 `construction` 函数中先定义。函数内部变量声明注意修饰符，变量用: `let`，常量用：`const`。`PropTypes` 声明如果是必输属性，必须加 `isRequired`修饰符。
 
-    ```jsx
-    class HelloWorld extends Component {
-      construction(props) {
-        super(props);
+  ```jsx
+  class HelloWorld extends Component {
+    construction(props) {
+      super(props);
 
-        this.objAtt = ""; // 对象内部属性在此定义
-        this.state = {
-          stateAtt: "" // state 属性在此定义
-        };
-      }
-      // 采用箭头函数方式声明函数
-      helloWorldClickHandle = () => {
-        // 函数内部变量用：let
-        let a = "";
-        a = a + 1;
-        console.log(a);
+      this.objAtt = ""; // 对象内部属性在此定义
+      this.state = {
+        stateAtt: "" // state 属性在此定义
       };
-
-      render() {
-        // 函数内部常量用：const
-        const { stateAtt } = this.state;
-        return (
-          <div onClick={this.helloWorldClickHandle}>HelloWOrld {stateAtt}</div>
-        );
-      }
     }
-
-    // 定义 PropTypes
-    HelloWorld.propTypes = {
-      remove: PropTypes.func.isRequired
+    // 采用箭头函数方式声明函数
+    helloWorldClickHandle = () => {
+      // 函数内部变量用：let
+      let a = "";
+      a = a + 1;
+      console.log(a);
     };
-    ```
+
+    render() {
+      // 函数内部常量用：const
+      const { stateAtt } = this.state;
+      return (
+        <div onClick={this.helloWorldClickHandle}>HelloWOrld {stateAtt}</div>
+      );
+    }
+  }
+
+  // 定义 PropTypes
+  HelloWorld.propTypes = {
+    remove: PropTypes.func.isRequired
+  };
+  ```
 
 - 命名规则
 
