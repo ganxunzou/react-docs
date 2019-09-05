@@ -2,10 +2,53 @@
 
 ## 文档规范
 
+- 文档格式
+
 非特殊需求情况下，文档声明必须是 html5 的文档类型：
 
 ```html
 <!DOCTYPE html>
+```
+
+- 文档编码
+
+没有特殊要求情况下，文档格式采用`utf-8`编码格式。
+
+```html
+<head>
+  <meta charset="UTF-8" />
+</head>
+```
+
+- css 引入
+
+引入 CSS 时必须指明 rel="stylesheet"。
+
+```html
+<link rel="stylesheet" src="page.css" />
+```
+
+- js 引入
+
+详见下文的脚本加载规范
+
+- favicon
+
+保证 favicon 可访问。
+
+```html
+<link rel="shortcut icon" href="path/to/favicon.ico" />
+```
+
+- viewport
+
+如果是移动端开发，必须设置`viewport`元数据标签，标签内的内容可以根据项目实际需求设置。
+
+```html
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no"
+/>
 ```
 
 ## 脚本加载规范
@@ -94,27 +137,29 @@
 ></div>
 ```
 
-## 语义化
+## 标签
+
+- 语义化
 
 `HTML` 标签的使用应该遵循标签的语义。
 
 下面是常见标签语义
 
-- p - 段落
-- h1,h2,h3,h4,h5,h6 - 层级标题
-- strong,em - 强调
-- ins - 插入
-- del - 删除
-- abbr - 缩写
-- code - 代码标识
-- cite - 引述来源作品的标题
-- q - 引用
-- blockquote - 一段或长篇引用
-- ul - 无序列表
-- ol - 有序列表
-- dl,dt,dd - 定义列表
-
-## 标签
+```
+p - 段落
+h1,h2,h3,h4,h5,h6 - 层级标题
+strong,em - 强调
+ins - 插入
+del - 删除
+abbr - 缩写
+code - 代码标识
+cite - 引述来源作品的标题
+q - 引用
+blockquote - 一段或长篇引用
+ul - 无序列表
+ol - 有序列表
+dl,dt,dd - 定义列表
+```
 
 - 标签名必须使用小写字母。
 
